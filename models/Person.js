@@ -14,7 +14,7 @@ const PersonSchema = new Schema({
    imagen_url: String,
    termination_date: Date,
    createdAt: Date,
-    updatedAt: Date
+   updatedAt: Date
 });
 
 module.exports  = mongoose.model('Persona', PersonSchema);

@@ -57,13 +57,13 @@ async function updatePersona(req,res)
   logger.debug("En updatePersona");
   try {
     const condiciones={ _id:req.params.id}
-    const newRegistry=  req.body
-    const result = await Person.replaceOne(condiciones,newRegistry);  
-    if (result.nModified==1)  
+    const newRegistry= req.body 
+    const result = await Person.findByIdAndUpdate(req.params.id,newRegistry);  
+    if (result)  
     {
         const devolver= { _id: req.params.id }; 
         devolver.updated=req.body;      
-        res.status(200).send(devolver);
+        res.status(200).send(result);
     }
     else
         res.status(404).send("Not found id: "+req.params.id);
@@ -101,7 +101,7 @@ async function  getPersona(req, res)
    
     logger.debug("En getPersona: ");
     const cursorPersonas=await Person.find(condiciones);        
-    res.status(201).send(cursorPersonas);
+    res.status(200).send(cursorPersonas);
   } catch (ex)
   {
     res.status(501).send("Error at getPersona: "+ex.message);
