@@ -3,8 +3,9 @@
 const express = require('express')
 const cors = require("cors");
 const bodyParser = require('body-parser')
+require('dotenv').config({ path: './db.env' });
 const app = express();
-const port = 3000
+const port = process.env['PORT'] || 3000
 
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
