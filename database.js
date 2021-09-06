@@ -14,12 +14,12 @@ module.exports = connectToDatabase = () =>
     const db_user=process.env['DB_USER'] || 'chuchip'
     const db_pass=process.env.DB_PASS
     const db_url = process.env.DB_URL
-    logger.debug(`Usuario: ${db_user} Contraseña: ${db_pass}`)
+    //logger.debug(`Usuario: ${db_user} Contraseña: ${db_pass}`)
     var uri = `mongodb+srv://${db_user}:${db_pass}@${db_url}`;
 
     if (db_url.startsWith("mongodb"))
       uri=db_url;
-    return mongoose.connect(db_url, { useNewUrlParser: true})
+    return mongoose.connect(db_url, { useNewUrlParser: true,authSource: "admin"})
     .then(db => { 
      isConnected = db.connections[0].readyState;
     })
