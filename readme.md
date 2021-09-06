@@ -19,7 +19,7 @@ Si se desea levantar una base de datos mongo en local se puede hacer con el sigu
 
 Los parametros a pone en db.env serian:
 ```
-DB_URL=mongodb://mongo:pass@localhost:27017/admin
+DB_URL=mongodb://mongo:pass@localhost:27017/mydb
 ```
 
 En este caso no es necesario poner la variable DB_USER y DB_PASS ya que la estamos poniendo en la base de datos.
