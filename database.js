@@ -19,7 +19,7 @@ module.exports = connectToDatabase = () =>
 
     if (db_url.startsWith("mongodb"))
       uri=db_url;
-    return mongoose.connect(db_url, { useNewUrlParser: true,authSource: "admin"})
+    return mongoose.connect(uri, { useNewUrlParser: true,authSource: "admin"})
     .then(db => { 
      isConnected = db.connections[0].readyState;
     })

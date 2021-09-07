@@ -14,7 +14,7 @@ DB_URL=<URL CONEXION>
 #### Database en Docker.
 Si se desea levantar una base de datos mongo en local se puede hacer con el siguiente comando:
 ```
-    docker run -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=mongo -e MONGO_INITDB_ROOT_PASSWORD=pass --name mongo_test -d mongo
+    docker run -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=mongo -e MONGO_INITDB_ROOT_PASSWORD=pass --name mongo_test -d mongo:4.2.15
 ``` 
 
 Los parametros a pone en db.env serian:
